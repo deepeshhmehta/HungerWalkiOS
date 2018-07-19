@@ -37,10 +37,11 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Icon" translatesAutoresizingMaskIntoConstraints="NO" id="DAM-1w-kWM">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon" translatesAutoresizingMaskIntoConstraints="NO" id="DAM-1w-kWM">
                                 <rect key="frame" x="67" y="171" width="240" height="128"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="XHI-sr-Flc"/>
+                                    <constraint firstAttribute="width" constant="240" id="Z3f-9H-2ed"/>
+                                    <constraint firstAttribute="height" constant="128" id="zvg-CQ-Zjt"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -50,7 +51,9 @@
                             <constraint firstItem="IMc-MZ-clt" firstAttribute="width" secondItem="8Sa-Vk-iR0" secondAttribute="width" constant="-20" id="FF6-gp-kW3"/>
                             <constraint firstItem="YZo-K4-Qxd" firstAttribute="width" secondItem="8Sa-Vk-iR0" secondAttribute="width" constant="-20" id="HTA-gN-XPv"/>
                             <constraint firstItem="dqP-w1-uUi" firstAttribute="centerX" secondItem="XLL-hE-IWM" secondAttribute="centerX" id="Jjw-b9-09H"/>
+                            <constraint firstItem="DAM-1w-kWM" firstAttribute="centerX" secondItem="XLL-hE-IWM" secondAttribute="centerX" id="LGW-Hf-OaD"/>
                             <constraint firstItem="IMc-MZ-clt" firstAttribute="top" secondItem="dqP-w1-uUi" secondAttribute="bottom" constant="63" id="LKS-hZ-DGX"/>
+                            <constraint firstItem="DAM-1w-kWM" firstAttribute="top" secondItem="XLL-hE-IWM" secondAttribute="top" constant="107" id="Y9g-oH-5Gz"/>
                             <constraint firstItem="dqP-w1-uUi" firstAttribute="top" secondItem="YZo-K4-Qxd" secondAttribute="bottom" constant="51" id="aCY-b7-tN3"/>
                             <constraint firstItem="IMc-MZ-clt" firstAttribute="centerX" secondItem="XLL-hE-IWM" secondAttribute="centerX" id="hIA-xx-LcQ"/>
                             <constraint firstItem="YZo-K4-Qxd" firstAttribute="centerX" secondItem="XLL-hE-IWM" secondAttribute="centerX" id="jOP-uM-Lcx"/>
