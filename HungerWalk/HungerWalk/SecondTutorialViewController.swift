@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  SecondViewController.swift
 //  HungerWalk
 //
 //  Created by Deepesh Mehta on 2018-07-10.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class SecondTutorialViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,5 +21,8 @@ class FirstViewController: UIViewController {
     }
 
 
+    @IBAction func nextButtonClicked(_ sender: Any) {
+        tabBarController?.selectedIndex += 1
+    }
 }
 
