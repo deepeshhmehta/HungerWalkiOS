@@ -15,6 +15,8 @@
 		79CFA3EE20F544A50049138D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79CFA3EC20F544A50049138D /* LaunchScreen.storyboard */; };
 		79CFA3F6210051C40049138D /* ThirdTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CFA3F5210051C40049138D /* ThirdTutorialViewController.swift */; };
 		79CFA3F82100524F0049138D /* FourthTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CFA3F72100524F0049138D /* FourthTutorialViewController.swift */; };
+		79CFA3FA210058320049138D /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79CFA3F9210058320049138D /* Login.storyboard */; };
+		79CFA3FE210059F60049138D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CFA3FD210059F60049138D /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		79CFA3EF20F544A50049138D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79CFA3F5210051C40049138D /* ThirdTutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdTutorialViewController.swift; sourceTree = "<group>"; };
 		79CFA3F72100524F0049138D /* FourthTutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthTutorialViewController.swift; sourceTree = "<group>"; };
+		79CFA3F9210058320049138D /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		79CFA3FD210059F60049138D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,17 +64,35 @@
 		79CFA3E020F544A10049138D /* HungerWalk */ = {
 			isa = PBXGroup;
 			children = (
+				79CFA3FB210059AE0049138D /* TutorialViewControllers */,
 				79CFA3E120F544A10049138D /* AppDelegate.swift */,
-				79CFA3E320F544A20049138D /* FirstTutorialViewController.swift */,
-				79CFA3E520F544A20049138D /* SecondTutorialViewController.swift */,
-				79CFA3F5210051C40049138D /* ThirdTutorialViewController.swift */,
 				79CFA3E720F544A20049138D /* Tutorial.storyboard */,
-				79CFA3F72100524F0049138D /* FourthTutorialViewController.swift */,
 				79CFA3EA20F544A50049138D /* Assets.xcassets */,
+				79CFA3F9210058320049138D /* Login.storyboard */,
+				79CFA3FC210059CF0049138D /* LoginViewControllers */,
 				79CFA3EC20F544A50049138D /* LaunchScreen.storyboard */,
 				79CFA3EF20F544A50049138D /* Info.plist */,
 			);
 			path = HungerWalk;
+			sourceTree = "<group>";
+		};
+		79CFA3FB210059AE0049138D /* TutorialViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				79CFA3E320F544A20049138D /* FirstTutorialViewController.swift */,
+				79CFA3E520F544A20049138D /* SecondTutorialViewController.swift */,
+				79CFA3F5210051C40049138D /* ThirdTutorialViewController.swift */,
+				79CFA3F72100524F0049138D /* FourthTutorialViewController.swift */,
+			);
+			path = TutorialViewControllers;
+			sourceTree = "<group>";
+		};
+		79CFA3FC210059CF0049138D /* LoginViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				79CFA3FD210059F60049138D /* LoginViewController.swift */,
+			);
+			path = LoginViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,6 +153,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79CFA3FA210058320049138D /* Login.storyboard in Resources */,
 				79CFA3EE20F544A50049138D /* LaunchScreen.storyboard in Resources */,
 				79CFA3EB20F544A50049138D /* Assets.xcassets in Resources */,
 				79CFA3E920F544A20049138D /* Tutorial.storyboard in Resources */,
@@ -144,6 +167,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79CFA3FE210059F60049138D /* LoginViewController.swift in Sources */,
 				79CFA3E620F544A20049138D /* SecondTutorialViewController.swift in Sources */,
 				79CFA3E220F544A10049138D /* AppDelegate.swift in Sources */,
 				79CFA3F6210051C40049138D /* ThirdTutorialViewController.swift in Sources */,

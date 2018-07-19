@@ -1,5 +1,5 @@
 //
-//  FourthTutorialViewController.swift
+//  LoginViewController.swift
 //  HungerWalk
 //
 //  Created by Deepesh Mehta on 2018-07-19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FourthTutorialViewController: UIViewController {
+class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,10 +21,7 @@ class FourthTutorialViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func lastNextClicked(_ sender: Any) {
-        dump("Last Button Clicked")
-    }
-    
+
     /*
     // MARK: - Navigation
 

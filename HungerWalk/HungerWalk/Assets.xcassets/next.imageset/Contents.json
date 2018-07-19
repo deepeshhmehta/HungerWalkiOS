@@ -2,11 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "icons8-more-than-100.png",
+      "filename" : "baseline_navigate_next_white_36dp.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "baseline_navigate_next_white_36dp-1.png",
       "scale" : "2x"
     },
     {

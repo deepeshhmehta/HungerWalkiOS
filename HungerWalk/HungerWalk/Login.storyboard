@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="wSX-aK-ey2">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" id="cSW-kt-5C4" customClass="LoginViewController" customModule="HungerWalk" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8Sa-Vk-iR0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="YZo-K4-Qxd">
+                                <rect key="frame" x="10" y="437" width="355" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" textContentType="email"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dqP-w1-uUi">
+                                <rect key="frame" x="10" y="518" width="355" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IMc-MZ-clt">
+                                <rect key="frame" x="10" y="611" width="355" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Icon" translatesAutoresizingMaskIntoConstraints="NO" id="DAM-1w-kWM">
+                                <rect key="frame" x="67" y="171" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="XHI-sr-Flc"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.67450980392156867" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="XLL-hE-IWM" firstAttribute="bottom" secondItem="IMc-MZ-clt" secondAttribute="bottom" constant="20" id="9ZH-Um-fiR"/>
+                            <constraint firstItem="IMc-MZ-clt" firstAttribute="width" secondItem="8Sa-Vk-iR0" secondAttribute="width" constant="-20" id="FF6-gp-kW3"/>
+                            <constraint firstItem="YZo-K4-Qxd" firstAttribute="width" secondItem="8Sa-Vk-iR0" secondAttribute="width" constant="-20" id="HTA-gN-XPv"/>
+                            <constraint firstItem="dqP-w1-uUi" firstAttribute="centerX" secondItem="XLL-hE-IWM" secondAttribute="centerX" id="Jjw-b9-09H"/>
+                            <constraint firstItem="IMc-MZ-clt" firstAttribute="top" secondItem="dqP-w1-uUi" secondAttribute="bottom" constant="63" id="LKS-hZ-DGX"/>
+                            <constraint firstItem="dqP-w1-uUi" firstAttribute="top" secondItem="YZo-K4-Qxd" secondAttribute="bottom" constant="51" id="aCY-b7-tN3"/>
+                            <constraint firstItem="IMc-MZ-clt" firstAttribute="centerX" secondItem="XLL-hE-IWM" secondAttribute="centerX" id="hIA-xx-LcQ"/>
+                            <constraint firstItem="YZo-K4-Qxd" firstAttribute="centerX" secondItem="XLL-hE-IWM" secondAttribute="centerX" id="jOP-uM-Lcx"/>
+                            <constraint firstItem="dqP-w1-uUi" firstAttribute="width" secondItem="XLL-hE-IWM" secondAttribute="width" constant="-20" id="ozW-uL-VCQ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="XLL-hE-IWM"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="aSX-aR-TV6"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5c-zN-21a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1100" y="95.802098950524751"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="b1k-Z8-ISh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LCl-Fp-eWm" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2Zu-WR-b5v">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="cSW-kt-5C4" kind="relationship" relationship="rootViewController" id="tCe-z8-9RC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lD6-OR-22e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="160.80000000000001" y="95.802098950524751"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Icon" width="1024" height="1024"/>
+    </resources>
+</document>
