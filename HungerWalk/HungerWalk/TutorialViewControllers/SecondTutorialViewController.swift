@@ -24,5 +24,8 @@ class SecondTutorialViewController: UIViewController {
     @IBAction func nextButtonClicked(_ sender: Any) {
         tabBarController?.selectedIndex += 1
     }
+    @IBAction func skipTouched(_ sender: Any) {
+        DataFunctionStore.goToLogin(currentViewController: self)
+    }
 }
 

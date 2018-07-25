@@ -21,7 +21,10 @@ class FourthTutorialViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-   
+    @IBAction func goToLogin(_ sender: Any) {
+        DataFunctionStore.goToLogin(currentViewController: self)
+    }
+    
     /*
     // MARK: - Navigation
 

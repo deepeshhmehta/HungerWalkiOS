@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		791748EC21091258008195B3 /* DataFunctionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791748EB21091258008195B3 /* DataFunctionStore.swift */; };
+		79174910210915D3008195B3 /* HungerWalk.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7917490E210915D3008195B3 /* HungerWalk.xcdatamodeld */; };
 		79CFA3E220F544A10049138D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CFA3E120F544A10049138D /* AppDelegate.swift */; };
 		79CFA3E420F544A20049138D /* FirstTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CFA3E320F544A20049138D /* FirstTutorialViewController.swift */; };
 		79CFA3E620F544A20049138D /* SecondTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CFA3E520F544A20049138D /* SecondTutorialViewController.swift */; };
@@ -17,9 +19,12 @@
 		79CFA3F82100524F0049138D /* FourthTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CFA3F72100524F0049138D /* FourthTutorialViewController.swift */; };
 		79CFA3FA210058320049138D /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79CFA3F9210058320049138D /* Login.storyboard */; };
 		79CFA3FE210059F60049138D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CFA3FD210059F60049138D /* LoginViewController.swift */; };
+		79CFA4002100F7290049138D /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CFA3FF2100F7290049138D /* TutorialViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		791748EB21091258008195B3 /* DataFunctionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFunctionStore.swift; sourceTree = "<group>"; };
+		7917490F210915D3008195B3 /* HungerWalk.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HungerWalk.xcdatamodel; sourceTree = "<group>"; };
 		79CFA3DE20F544A10049138D /* HungerWalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HungerWalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79CFA3E120F544A10049138D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79CFA3E320F544A20049138D /* FirstTutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTutorialViewController.swift; sourceTree = "<group>"; };
@@ -32,6 +37,7 @@
 		79CFA3F72100524F0049138D /* FourthTutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthTutorialViewController.swift; sourceTree = "<group>"; };
 		79CFA3F9210058320049138D /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		79CFA3FD210059F60049138D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		79CFA3FF2100F7290049138D /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +54,7 @@
 		79CFA3D520F544A10049138D = {
 			isa = PBXGroup;
 			children = (
+				791748EB21091258008195B3 /* DataFunctionStore.swift */,
 				79CFA3E020F544A10049138D /* HungerWalk */,
 				79CFA3DF20F544A10049138D /* Products */,
 			);
@@ -66,6 +73,7 @@
 			children = (
 				79CFA3FB210059AE0049138D /* TutorialViewControllers */,
 				79CFA3E120F544A10049138D /* AppDelegate.swift */,
+				7917490E210915D3008195B3 /* HungerWalk.xcdatamodeld */,
 				79CFA3E720F544A20049138D /* Tutorial.storyboard */,
 				79CFA3EA20F544A50049138D /* Assets.xcassets */,
 				79CFA3F9210058320049138D /* Login.storyboard */,
@@ -83,6 +91,7 @@
 				79CFA3E520F544A20049138D /* SecondTutorialViewController.swift */,
 				79CFA3F5210051C40049138D /* ThirdTutorialViewController.swift */,
 				79CFA3F72100524F0049138D /* FourthTutorialViewController.swift */,
+				79CFA3FF2100F7290049138D /* TutorialViewController.swift */,
 			);
 			path = TutorialViewControllers;
 			sourceTree = "<group>";
@@ -168,11 +177,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				79CFA3FE210059F60049138D /* LoginViewController.swift in Sources */,
+				79CFA4002100F7290049138D /* TutorialViewController.swift in Sources */,
 				79CFA3E620F544A20049138D /* SecondTutorialViewController.swift in Sources */,
+				79174910210915D3008195B3 /* HungerWalk.xcdatamodeld in Sources */,
 				79CFA3E220F544A10049138D /* AppDelegate.swift in Sources */,
 				79CFA3F6210051C40049138D /* ThirdTutorialViewController.swift in Sources */,
 				79CFA3E420F544A20049138D /* FirstTutorialViewController.swift in Sources */,
 				79CFA3F82100524F0049138D /* FourthTutorialViewController.swift in Sources */,
+				791748EC21091258008195B3 /* DataFunctionStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,6 +386,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7917490E210915D3008195B3 /* HungerWalk.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7917490F210915D3008195B3 /* HungerWalk.xcdatamodel */,
+			);
+			currentVersion = 7917490F210915D3008195B3 /* HungerWalk.xcdatamodel */;
+			path = HungerWalk.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 79CFA3D620F544A10049138D /* Project object */;
 }

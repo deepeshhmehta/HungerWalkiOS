@@ -10,6 +10,7 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet var loginButton: [UIButton]!
     var keyboardAdjusted = false
     var lastKeyboardOffset: CGFloat = 0.0
 

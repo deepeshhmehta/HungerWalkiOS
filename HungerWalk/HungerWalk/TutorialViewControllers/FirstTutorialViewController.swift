@@ -13,6 +13,7 @@ class FirstTutorialViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,6 +23,10 @@ class FirstTutorialViewController: UIViewController {
 
     @IBAction func nextButtonClicked(_ sender: Any) {
         tabBarController?.selectedIndex += 1
+    }
+    
+    @IBAction func skipTouched(_ sender: Any) {
+        DataFunctionStore.goToLogin(currentViewController: self)
     }
 }
 
