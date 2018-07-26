@@ -14,6 +14,8 @@ class TutorialViewController: UITabBarController {
         super.viewDidLoad()
         self.delegate = self
         // Do any additional setup after loading the view.
+        
+        DataFunctionStore.networkTest()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -22,10 +24,14 @@ class TutorialViewController: UITabBarController {
         }else{
             DataFunctionStore.BasicData = BasicData(context: DataFunctionStore.context)
             DataFunctionStore.BasicData?.tutorialComplete = false
+            DataFunctionStore.BasicData?.logInSuccess = false
             DataFunctionStore.appDelegate.saveContext()
         }
-        
-        if(DataFunctionStore.BasicData?.tutorialComplete)!{
+        if((DataFunctionStore.BasicData?.logInSuccess)! && DataFunctionStore.BasicData?.username != nil){
+            dump(DataFunctionStore.BasicData?.username)
+            DataFunctionStore.goToMainScreen(currentViewController: self)
+            self.removeFromParentViewController()
+        }else if(DataFunctionStore.BasicData?.tutorialComplete)!{
             DataFunctionStore.goToLogin(currentViewController: self)
         }
     }

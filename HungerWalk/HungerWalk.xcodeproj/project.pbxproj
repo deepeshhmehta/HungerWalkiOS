@@ -7,8 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03C6E6AF3357EC26ECCDC8A7 /* Pods_HungerWalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A41E91B47B091462EA57AB /* Pods_HungerWalk.framework */; };
 		791748EC21091258008195B3 /* DataFunctionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791748EB21091258008195B3 /* DataFunctionStore.swift */; };
 		79174910210915D3008195B3 /* HungerWalk.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7917490E210915D3008195B3 /* HungerWalk.xcdatamodeld */; };
+		7948BB712109A70E00AFF915 /* BasicData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7948BB6F2109A70E00AFF915 /* BasicData+CoreDataClass.swift */; };
+		7948BB722109A70E00AFF915 /* BasicData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7948BB702109A70E00AFF915 /* BasicData+CoreDataProperties.swift */; };
+		7948BB752109AE9400AFF915 /* BasicData_map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7948BB742109AE9400AFF915 /* BasicData_map.swift */; };
+		7948BB772109B80200AFF915 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7948BB762109B80200AFF915 /* SignUpViewController.swift */; };
+		7948BB792109B81500AFF915 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7948BB782109B81500AFF915 /* ForgotPasswordViewController.swift */; };
+		7948BB7B210A279700AFF915 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7948BB7A210A279700AFF915 /* Main.storyboard */; };
+		7948BB7D210A28C300AFF915 /* RestaurentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7948BB7C210A28C300AFF915 /* RestaurentsViewController.swift */; };
 		79CFA3E220F544A10049138D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CFA3E120F544A10049138D /* AppDelegate.swift */; };
 		79CFA3E420F544A20049138D /* FirstTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CFA3E320F544A20049138D /* FirstTutorialViewController.swift */; };
 		79CFA3E620F544A20049138D /* SecondTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CFA3E520F544A20049138D /* SecondTutorialViewController.swift */; };
@@ -23,8 +31,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		42F7A0C009E2CF425E693F0A /* Pods-HungerWalk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HungerWalk.release.xcconfig"; path = "Pods/Target Support Files/Pods-HungerWalk/Pods-HungerWalk.release.xcconfig"; sourceTree = "<group>"; };
 		791748EB21091258008195B3 /* DataFunctionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFunctionStore.swift; sourceTree = "<group>"; };
 		7917490F210915D3008195B3 /* HungerWalk.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HungerWalk.xcdatamodel; sourceTree = "<group>"; };
+		7948BB6F2109A70E00AFF915 /* BasicData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BasicData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7948BB702109A70E00AFF915 /* BasicData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BasicData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7948BB742109AE9400AFF915 /* BasicData_map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicData_map.swift; sourceTree = "<group>"; };
+		7948BB762109B80200AFF915 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		7948BB782109B81500AFF915 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		7948BB7A210A279700AFF915 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		7948BB7C210A28C300AFF915 /* RestaurentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurentsViewController.swift; sourceTree = "<group>"; };
 		79CFA3DE20F544A10049138D /* HungerWalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HungerWalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79CFA3E120F544A10049138D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79CFA3E320F544A20049138D /* FirstTutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTutorialViewController.swift; sourceTree = "<group>"; };
@@ -38,6 +54,8 @@
 		79CFA3F9210058320049138D /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		79CFA3FD210059F60049138D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		79CFA3FF2100F7290049138D /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
+		93A41E91B47B091462EA57AB /* Pods_HungerWalk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HungerWalk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BB2BB474D40B8849B23AA4E /* Pods-HungerWalk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HungerWalk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HungerWalk/Pods-HungerWalk.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,18 +63,46 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03C6E6AF3357EC26ECCDC8A7 /* Pods_HungerWalk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6CD8E227CED1ABB05A035365 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9BB2BB474D40B8849B23AA4E /* Pods-HungerWalk.debug.xcconfig */,
+				42F7A0C009E2CF425E693F0A /* Pods-HungerWalk.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7948BB6A2109A68100AFF915 /* Managed Objects */ = {
+			isa = PBXGroup;
+			children = (
+				7948BB6F2109A70E00AFF915 /* BasicData+CoreDataClass.swift */,
+				7948BB702109A70E00AFF915 /* BasicData+CoreDataProperties.swift */,
+			);
+			path = "Managed Objects";
+			sourceTree = "<group>";
+		};
+		7948BB732109AE4A00AFF915 /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				7948BB742109AE9400AFF915 /* BasicData_map.swift */,
+			);
+			path = Maps;
+			sourceTree = "<group>";
+		};
 		79CFA3D520F544A10049138D = {
 			isa = PBXGroup;
 			children = (
-				791748EB21091258008195B3 /* DataFunctionStore.swift */,
 				79CFA3E020F544A10049138D /* HungerWalk */,
 				79CFA3DF20F544A10049138D /* Products */,
+				6CD8E227CED1ABB05A035365 /* Pods */,
+				FB3A2B87A9A7E9BAD7C04338 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,6 +117,9 @@
 		79CFA3E020F544A10049138D /* HungerWalk */ = {
 			isa = PBXGroup;
 			children = (
+				7948BB732109AE4A00AFF915 /* Maps */,
+				7948BB6A2109A68100AFF915 /* Managed Objects */,
+				791748EB21091258008195B3 /* DataFunctionStore.swift */,
 				79CFA3FB210059AE0049138D /* TutorialViewControllers */,
 				79CFA3E120F544A10049138D /* AppDelegate.swift */,
 				7917490E210915D3008195B3 /* HungerWalk.xcdatamodeld */,
@@ -80,6 +129,8 @@
 				79CFA3FC210059CF0049138D /* LoginViewControllers */,
 				79CFA3EC20F544A50049138D /* LaunchScreen.storyboard */,
 				79CFA3EF20F544A50049138D /* Info.plist */,
+				7948BB7A210A279700AFF915 /* Main.storyboard */,
+				7948BB7C210A28C300AFF915 /* RestaurentsViewController.swift */,
 			);
 			path = HungerWalk;
 			sourceTree = "<group>";
@@ -100,8 +151,18 @@
 			isa = PBXGroup;
 			children = (
 				79CFA3FD210059F60049138D /* LoginViewController.swift */,
+				7948BB762109B80200AFF915 /* SignUpViewController.swift */,
+				7948BB782109B81500AFF915 /* ForgotPasswordViewController.swift */,
 			);
 			path = LoginViewControllers;
+			sourceTree = "<group>";
+		};
+		FB3A2B87A9A7E9BAD7C04338 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				93A41E91B47B091462EA57AB /* Pods_HungerWalk.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -111,9 +172,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 79CFA3F220F544A50049138D /* Build configuration list for PBXNativeTarget "HungerWalk" */;
 			buildPhases = (
+				8F9EC72CD59FF2626445E792 /* [CP] Check Pods Manifest.lock */,
 				79CFA3DA20F544A10049138D /* Sources */,
 				79CFA3DB20F544A10049138D /* Frameworks */,
 				79CFA3DC20F544A10049138D /* Resources */,
+				9E6BAD96558B583FA3668116 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -163,6 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79CFA3FA210058320049138D /* Login.storyboard in Resources */,
+				7948BB7B210A279700AFF915 /* Main.storyboard in Resources */,
 				79CFA3EE20F544A50049138D /* LaunchScreen.storyboard in Resources */,
 				79CFA3EB20F544A50049138D /* Assets.xcassets in Resources */,
 				79CFA3E920F544A20049138D /* Tutorial.storyboard in Resources */,
@@ -171,20 +235,67 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		8F9EC72CD59FF2626445E792 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HungerWalk-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9E6BAD96558B583FA3668116 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-HungerWalk/Pods-HungerWalk-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HungerWalk/Pods-HungerWalk-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		79CFA3DA20F544A10049138D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7948BB712109A70E00AFF915 /* BasicData+CoreDataClass.swift in Sources */,
+				7948BB722109A70E00AFF915 /* BasicData+CoreDataProperties.swift in Sources */,
 				79CFA3FE210059F60049138D /* LoginViewController.swift in Sources */,
 				79CFA4002100F7290049138D /* TutorialViewController.swift in Sources */,
 				79CFA3E620F544A20049138D /* SecondTutorialViewController.swift in Sources */,
 				79174910210915D3008195B3 /* HungerWalk.xcdatamodeld in Sources */,
 				79CFA3E220F544A10049138D /* AppDelegate.swift in Sources */,
 				79CFA3F6210051C40049138D /* ThirdTutorialViewController.swift in Sources */,
+				7948BB7D210A28C300AFF915 /* RestaurentsViewController.swift in Sources */,
+				7948BB792109B81500AFF915 /* ForgotPasswordViewController.swift in Sources */,
 				79CFA3E420F544A20049138D /* FirstTutorialViewController.swift in Sources */,
 				79CFA3F82100524F0049138D /* FourthTutorialViewController.swift in Sources */,
 				791748EC21091258008195B3 /* DataFunctionStore.swift in Sources */,
+				7948BB772109B80200AFF915 /* SignUpViewController.swift in Sources */,
+				7948BB752109AE9400AFF915 /* BasicData_map.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +437,7 @@
 		};
 		79CFA3F320F544A50049138D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BB2BB474D40B8849B23AA4E /* Pods-HungerWalk.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -346,6 +458,7 @@
 		};
 		79CFA3F420F544A50049138D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42F7A0C009E2CF425E693F0A /* Pods-HungerWalk.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

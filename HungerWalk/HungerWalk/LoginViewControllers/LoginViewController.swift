@@ -10,7 +10,10 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-    @IBOutlet var loginButton: [UIButton]!
+    @IBOutlet var email: UITextField!
+    
+    @IBOutlet var password: UITextField!
+    
     var keyboardAdjusted = false
     var lastKeyboardOffset: CGFloat = 0.0
 
@@ -47,16 +50,48 @@ class LoginViewController: UIViewController {
     }
     
     
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func LoginTouched(_ sender: Any) {
+        if email.text == "" {
+            print("email cannot be blank")
+            return
+        }
+        if password.text == ""{
+            print("password cannot be blank")
+            return
+        }
+        
+        DataFunctionStore.checkLogin(data: ["EMAIL": email.text!, "PASSWORD": password.text!])
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            if(DataFunctionStore.BasicData?.logInSuccess)!{
+                print("Success Login")
+                dump(DataFunctionStore.BasicData)
+                DataFunctionStore.goToMainScreen(currentViewController: self)
+            }else{
+                print("Failed Login")
+            }
+        }
+       
+        
     }
-    */
-
+    
+    @IBAction func signUpTouched(_ sender: Any) {
+       let signUpViewController = storyboard?.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
+        self.present(signUpViewController, animated: true)
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
