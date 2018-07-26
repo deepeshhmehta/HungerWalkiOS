@@ -63,11 +63,10 @@ class LoginViewController: UIViewController {
         DataFunctionStore.checkLogin(data: ["EMAIL": email.text!, "PASSWORD": password.text!])
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             if(DataFunctionStore.BasicData?.logInSuccess)!{
-                print("Success Login")
-                dump(DataFunctionStore.BasicData)
+                DataFunctionStore.showToast(message: "Login Success", controller: self)
                 DataFunctionStore.goToMainScreen(currentViewController: self)
             }else{
-                print("Failed Login")
+                DataFunctionStore.showToast(message: "Login Failed", controller: self)
             }
         }
        
