@@ -11,7 +11,7 @@ import CoreData
 import Alamofire
 
 class DataFunctionStore: NSObject {
-    static let domain = "http://10.51.213.216:5050/hunger-walk/"
+    static let domain = "http://192.168.0.26:5050/hunger-walk/"
     
     static let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
     
@@ -105,21 +105,21 @@ class DataFunctionStore: NSObject {
         Alamofire.request(url, method: .post, parameters: data, encoding: URLEncoding.default, headers: [:])
             .responseJSON{response in
                 
-                let result = response.result.value as! NSDictionary
+                let result = response.result.value as? NSDictionary
                 
                 
-                if((result.value(forKey: "SUCCESS")) as! Bool){
+                if((result?.value(forKey: "SUCCESS")) as! Bool){
                     print("bool true")
-                    DataFunctionStore.BasicData?.username =  result.value(forKey: "NAME") as! String
-                    DataFunctionStore.BasicData?.userID = Int(result.value(forKey: "ID") as! String)!
+                    DataFunctionStore.BasicData?.username =  result?.value(forKey: "NAME") as! String
+                    DataFunctionStore.BasicData?.userID = Int(result?.value(forKey: "ID") as! String)!
                     DataFunctionStore.appDelegate.saveContext()
                     
                     
                 }else{
-                    
+                    print("bool false")
                     
                 }
-                DataFunctionStore.BasicData?.logInSuccess = result.value(forKey: "SUCCESS") as! Bool
+                DataFunctionStore.BasicData?.logInSuccess = result?.value(forKey: "SUCCESS") as! Bool
                 DataFunctionStore.appDelegate.saveContext()
         }
         
