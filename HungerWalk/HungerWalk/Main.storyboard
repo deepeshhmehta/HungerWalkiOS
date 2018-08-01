@@ -18,20 +18,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hello " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QNA-M9-qJ9">
-                                <rect key="frame" x="166" y="323" width="44" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wIM-5z-Ga1">
+                                <rect key="frame" x="19.5" y="5.5" width="335" height="627"/>
+                                <color key="backgroundColor" red="0.67450980390000004" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BxG-do-FQk" id="6tx-QG-unC"/>
+                                    <outlet property="delegate" destination="BxG-do-FQk" id="bSP-TK-QXD"/>
+                                </connections>
+                            </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.67450980390000004" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wIM-5z-Ga1" firstAttribute="height" secondItem="Qx4-ad-kjR" secondAttribute="height" constant="-40" id="ACY-wi-WBd"/>
+                            <constraint firstItem="wIM-5z-Ga1" firstAttribute="centerX" secondItem="ych-fv-ruD" secondAttribute="centerX" id="MLv-ic-fGt"/>
+                            <constraint firstItem="wIM-5z-Ga1" firstAttribute="width" secondItem="Qx4-ad-kjR" secondAttribute="width" constant="-40" id="Vkw-GZ-Jzo"/>
+                            <constraint firstItem="wIM-5z-Ga1" firstAttribute="centerY" secondItem="ych-fv-ruD" secondAttribute="centerY" id="dbK-P4-jYY"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ych-fv-ruD"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Restaurents" id="nUt-Rg-B0F" userLabel="Restaurents"/>
                     <connections>
-                        <outlet property="test" destination="QNA-M9-qJ9" id="QRk-3Q-ZSk"/>
+                        <outlet property="restaurentListTable" destination="wIM-5z-Ga1" id="hQb-z7-H0v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bMR-fO-6I0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -45,7 +52,7 @@
                     <view key="view" contentMode="scaleToFill" id="RER-61-CSK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.67450980390000004" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="2Ki-Kn-prl"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" id="Hr3-bb-qh1"/>
@@ -58,29 +65,50 @@
         <!--Fav-->
         <scene sceneID="JTN-26-d3N">
             <objects>
-                <viewController id="ljD-8n-SXD" sceneMemberID="viewController">
+                <viewController id="ljD-8n-SXD" customClass="FavouritesViewController" customModule="HungerWalk" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="R1J-Vq-5hS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Mbr-H9-yeQ">
+                                <rect key="frame" x="20" y="5.5" width="335" height="627"/>
+                                <color key="backgroundColor" red="0.67450980390000004" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="ljD-8n-SXD" id="8do-Ez-k3S"/>
+                                    <outlet property="delegate" destination="ljD-8n-SXD" id="qTY-7D-gsR"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.67450980390000004" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Mbr-H9-yeQ" firstAttribute="centerY" secondItem="sMO-o3-xXb" secondAttribute="centerY" id="7PM-S9-C78"/>
+                            <constraint firstItem="Mbr-H9-yeQ" firstAttribute="height" secondItem="R1J-Vq-5hS" secondAttribute="height" constant="-40" id="NdH-98-3xl"/>
+                            <constraint firstItem="Mbr-H9-yeQ" firstAttribute="centerX" secondItem="sMO-o3-xXb" secondAttribute="centerX" id="QIo-uk-7nZ"/>
+                            <constraint firstItem="Mbr-H9-yeQ" firstAttribute="width" secondItem="R1J-Vq-5hS" secondAttribute="width" constant="-40" id="op2-9c-zT3"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="sMO-o3-xXb"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Fav" id="ZiR-FD-Izg"/>
+                    <connections>
+                        <outlet property="favouriteListTable" destination="Mbr-H9-yeQ" id="cur-yr-749"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WtK-bM-dce" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-18" y="-74"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main View Controller-->
         <scene sceneID="Nzn-Su-jeK">
             <objects>
-                <tabBarController storyboardIdentifier="LandingScreen" id="Z4n-fx-9Nt" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Wwf-hQ-W40">
+                <tabBarController storyboardIdentifier="LandingScreen" id="Z4n-fx-9Nt" customClass="MainViewController" customModule="HungerWalk" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="Wwf-hQ-W40">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.27496010770000001" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
+                        <outlet property="mainTabBar" destination="Wwf-hQ-W40" id="w5e-mK-CTL"/>
                         <segue destination="ljD-8n-SXD" kind="relationship" relationship="viewControllers" id="xqm-rF-vnI"/>
                         <segue destination="BxG-do-FQk" kind="relationship" relationship="viewControllers" id="GS2-qv-5qe"/>
                         <segue destination="edb-Qi-Rjn" kind="relationship" relationship="viewControllers" id="pvr-r9-Suj"/>

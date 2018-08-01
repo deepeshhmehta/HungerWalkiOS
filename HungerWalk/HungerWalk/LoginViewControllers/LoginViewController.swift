@@ -29,12 +29,7 @@ class LoginViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-            UIView.animateKeyframes(withDuration: 2.0, delay: 0.0, options: [.repeat, .autoreverse], animations: {
-                let frame = self.logo.frame
-                let animatedFrame = CGRect(x: frame.minX - frame.width, y: frame.minY - frame.height, width: frame.width * 3, height: frame.height * 3)
-                self.logo.frame = animatedFrame
-                
-            }, completion: nil)
+            animateLogo()
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,6 +39,7 @@ class LoginViewController: UIViewController {
     
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            
             if self.view.frame.origin.y == 0{
                 self.view.frame.origin.y -= keyboardSize.height
             }
@@ -51,9 +47,7 @@ class LoginViewController: UIViewController {
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
-        if self.view.frame.origin.y != 0{
-            self.view.frame.origin.y = 0
-        }
+        self.view.frame.origin.y = 0
     }
 
     @objc func dismissKeyboard(){
@@ -92,6 +86,13 @@ class LoginViewController: UIViewController {
     @IBAction func forgotPasswordTouched(_ sender: Any){
         let forgotPassword = storyboard?.instantiateViewController(withIdentifier: "ForgotPasswordViewController") as! ForgotPasswordViewController
         self.present(forgotPassword, animated: true)
+    }
+    
+    func animateLogo(){
+        UIView.animateKeyframes(withDuration: 1.0, delay: 0.0, options: [.repeat, .autoreverse], animations: {
+            self.logo.transform = CGAffineTransform.identity.scaledBy(x: 2.5, y: 2.5)
+            
+        }, completion: nil)
     }
 }
 

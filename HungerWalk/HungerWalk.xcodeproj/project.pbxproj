@@ -17,6 +17,9 @@
 		7948BB792109B81500AFF915 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7948BB782109B81500AFF915 /* ForgotPasswordViewController.swift */; };
 		7948BB7B210A279700AFF915 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7948BB7A210A279700AFF915 /* Main.storyboard */; };
 		7948BB7D210A28C300AFF915 /* RestaurentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7948BB7C210A28C300AFF915 /* RestaurentsViewController.swift */; };
+		79CAE76E2111803100B42B2E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CAE76D2111803100B42B2E /* MainViewController.swift */; };
+		79CAE7702111829600B42B2E /* Restaurent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CAE76F2111829600B42B2E /* Restaurent.swift */; };
+		79CAE7722111903800B42B2E /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CAE7712111903800B42B2E /* FavouritesViewController.swift */; };
 		79CFA3E220F544A10049138D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CFA3E120F544A10049138D /* AppDelegate.swift */; };
 		79CFA3E420F544A20049138D /* FirstTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CFA3E320F544A20049138D /* FirstTutorialViewController.swift */; };
 		79CFA3E620F544A20049138D /* SecondTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CFA3E520F544A20049138D /* SecondTutorialViewController.swift */; };
@@ -41,6 +44,9 @@
 		7948BB782109B81500AFF915 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		7948BB7A210A279700AFF915 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		7948BB7C210A28C300AFF915 /* RestaurentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurentsViewController.swift; sourceTree = "<group>"; };
+		79CAE76D2111803100B42B2E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		79CAE76F2111829600B42B2E /* Restaurent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurent.swift; sourceTree = "<group>"; };
+		79CAE7712111903800B42B2E /* FavouritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewController.swift; sourceTree = "<group>"; };
 		79CFA3DE20F544A10049138D /* HungerWalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HungerWalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79CFA3E120F544A10049138D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79CFA3E320F544A20049138D /* FirstTutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTutorialViewController.swift; sourceTree = "<group>"; };
@@ -88,12 +94,23 @@
 			path = "Managed Objects";
 			sourceTree = "<group>";
 		};
-		7948BB732109AE4A00AFF915 /* Maps */ = {
+		7948BB732109AE4A00AFF915 /* Maps_Data */ = {
 			isa = PBXGroup;
 			children = (
 				7948BB742109AE9400AFF915 /* BasicData_map.swift */,
+				79CAE76F2111829600B42B2E /* Restaurent.swift */,
 			);
-			path = Maps;
+			path = Maps_Data;
+			sourceTree = "<group>";
+		};
+		79CAE76C21117DF500B42B2E /* MainViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				7948BB7C210A28C300AFF915 /* RestaurentsViewController.swift */,
+				79CAE76D2111803100B42B2E /* MainViewController.swift */,
+				79CAE7712111903800B42B2E /* FavouritesViewController.swift */,
+			);
+			path = MainViewControllers;
 			sourceTree = "<group>";
 		};
 		79CFA3D520F544A10049138D = {
@@ -117,7 +134,7 @@
 		79CFA3E020F544A10049138D /* HungerWalk */ = {
 			isa = PBXGroup;
 			children = (
-				7948BB732109AE4A00AFF915 /* Maps */,
+				7948BB732109AE4A00AFF915 /* Maps_Data */,
 				7948BB6A2109A68100AFF915 /* Managed Objects */,
 				791748EB21091258008195B3 /* DataFunctionStore.swift */,
 				79CFA3FB210059AE0049138D /* TutorialViewControllers */,
@@ -130,7 +147,7 @@
 				79CFA3EC20F544A50049138D /* LaunchScreen.storyboard */,
 				79CFA3EF20F544A50049138D /* Info.plist */,
 				7948BB7A210A279700AFF915 /* Main.storyboard */,
-				7948BB7C210A28C300AFF915 /* RestaurentsViewController.swift */,
+				79CAE76C21117DF500B42B2E /* MainViewControllers */,
 			);
 			path = HungerWalk;
 			sourceTree = "<group>";
@@ -281,6 +298,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79CAE7722111903800B42B2E /* FavouritesViewController.swift in Sources */,
 				7948BB712109A70E00AFF915 /* BasicData+CoreDataClass.swift in Sources */,
 				7948BB722109A70E00AFF915 /* BasicData+CoreDataProperties.swift in Sources */,
 				79CFA3FE210059F60049138D /* LoginViewController.swift in Sources */,
@@ -288,6 +306,7 @@
 				79CFA3E620F544A20049138D /* SecondTutorialViewController.swift in Sources */,
 				79174910210915D3008195B3 /* HungerWalk.xcdatamodeld in Sources */,
 				79CFA3E220F544A10049138D /* AppDelegate.swift in Sources */,
+				79CAE76E2111803100B42B2E /* MainViewController.swift in Sources */,
 				79CFA3F6210051C40049138D /* ThirdTutorialViewController.swift in Sources */,
 				7948BB7D210A28C300AFF915 /* RestaurentsViewController.swift in Sources */,
 				7948BB792109B81500AFF915 /* ForgotPasswordViewController.swift in Sources */,
@@ -295,6 +314,7 @@
 				79CFA3F82100524F0049138D /* FourthTutorialViewController.swift in Sources */,
 				791748EC21091258008195B3 /* DataFunctionStore.swift in Sources */,
 				7948BB772109B80200AFF915 /* SignUpViewController.swift in Sources */,
+				79CAE7702111829600B42B2E /* Restaurent.swift in Sources */,
 				7948BB752109AE9400AFF915 /* BasicData_map.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -444,7 +464,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3597ABG5M9;
 				INFOPLIST_FILE = HungerWalk/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -466,7 +486,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3597ABG5M9;
 				INFOPLIST_FILE = HungerWalk/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -19,6 +19,10 @@ class DataFunctionStore: NSObject {
     
     static var BasicData: BasicData?
     
+    static var restaurentTableData: [Restaurent]?
+    
+    static var favouriteTableData: [Restaurent]?
+    
     static func goToLogin(currentViewController : UIViewController){
         DataFunctionStore.BasicData?.tutorialComplete = true
         DataFunctionStore.appDelegate.saveContext()
@@ -26,8 +30,9 @@ class DataFunctionStore: NSObject {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Login", bundle:nil)
         
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-        currentViewController.present(nextViewController, animated:true, completion:nil)
-        currentViewController.removeFromParentViewController()
+        currentViewController.present(nextViewController, animated:true, completion:{
+            currentViewController.removeFromParentViewController()
+        })
     }
     
     static func goToMainScreen(currentViewController : UIViewController){
@@ -133,5 +138,48 @@ class DataFunctionStore: NSObject {
         }
         
         DataFunctionStore.goToLogin(currentViewController: controller)
+    }
+    
+    static func getRestaurantAPI(controller: UIViewController){
+        let url = DataFunctionStore.domain + "getRestaurantAPI.php"
+        Alamofire.request(url, method: .post, parameters: nil, encoding: URLEncoding.default, headers: [:])
+            .responseJSON{response in
+                let result = response.result.value as? NSDictionary
+                var restaurentTableData : [Restaurent] = []
+                
+                for rest in result?.value(forKey: "RestaurantList") as! [NSDictionary]{
+                    let restaurent = Restaurent()
+                    restaurent.ID = Int(rest.value(forKey: "ID") as! String)!
+                    restaurent.R_ADDESS = rest.value(forKey: "R_ADDESS") as! String
+                    restaurent.R_NAME = rest.value(forKey: "R_NAME") as! String
+                    restaurentTableData.append(restaurent)
+                }
+                
+                DataFunctionStore.restaurentTableData = restaurentTableData
+                (controller as! RestaurentsViewController).restaurentListTable.reloadData()
+        }
+        
+    }
+    
+    static func getFavouriteRestaurantAPI(controller: UIViewController){
+        let url = DataFunctionStore.domain + "getFavouriteAPI.php"
+        Alamofire.request(url, method: .post, parameters: ["ID" : DataFunctionStore.BasicData?.userID ?? 0], encoding: URLEncoding.default, headers: [:])
+            .responseJSON{response in
+                let result = response.result.value as? NSDictionary
+                var favouriteTableData : [Restaurent] = []
+                
+                for rest in result?.value(forKey: "RestaurantList") as! [NSDictionary]{
+                    let restaurent = Restaurent()
+                    restaurent.ID = Int(rest.value(forKey: "ID") as! String)!
+                    restaurent.R_ADDESS = rest.value(forKey: "R_ADDESS") as! String
+                    restaurent.R_NAME = rest.value(forKey: "R_NAME") as! String
+                    favouriteTableData.append(restaurent)
+                }
+                
+                DataFunctionStore.favouriteTableData = favouriteTableData
+                
+                (controller as! FavouritesViewController).favouriteListTable.reloadData()
+        }
+        
     }
 }

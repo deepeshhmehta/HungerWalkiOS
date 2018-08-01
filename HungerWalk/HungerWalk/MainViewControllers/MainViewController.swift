@@ -1,25 +1,21 @@
 //
-//  RestaurentsViewController.swift
+//  MainViewController.swift
 //  HungerWalk
 //
-//  Created by Deepesh Mehta on 2018-07-26.
+//  Created by Deepesh Mehta on 2018-08-01.
 //  Copyright © 2018 DGames. All rights reserved.
 //
 
 import UIKit
 
-class RestaurentsViewController: UIViewController {
-    @IBOutlet var test: UILabel!
-    
+class MainViewController: UITabBarController {
+
+    @IBOutlet var mainTabBar: UITabBar!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        test.text = "Hello " + (DataFunctionStore.BasicData!.username) + " yo!"
-        // Do any additional setup after loading the view.
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
         
+        
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

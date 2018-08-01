@@ -23,8 +23,12 @@ class SignUpViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.dismissKeyboard))
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SignUpViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
+        
+        let swipeLeft: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(SignUpViewController.swipedLeft))
+        
+        view.addGestureRecognizer(swipeLeft)
     }
 
     @objc func keyboardWillShow(notification: NSNotification) {
@@ -43,6 +47,12 @@ class SignUpViewController: UIViewController {
     
     @objc func dismissKeyboard(){
         view.endEditing(true)
+    }
+    
+    @objc func swipedLeft(){
+        print("swiped")
+        DataFunctionStore.goToLogin(currentViewController: self)
+        self.view.removeFromSuperview()
     }
     
     override func didReceiveMemoryWarning() {
