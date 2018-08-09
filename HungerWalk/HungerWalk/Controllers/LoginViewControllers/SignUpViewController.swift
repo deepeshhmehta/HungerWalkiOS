@@ -14,6 +14,10 @@ class SignUpViewController: UIViewController {
     @IBOutlet var phone: UITextField!
     @IBOutlet var password: UITextField!
     @IBOutlet var confirm_password: UITextField!
+    @IBOutlet weak var signUpButtonBottomConstraint: NSLayoutConstraint!
+    
+    
+    var currentTextField: UITextField?
     
     
     override func viewDidLoad() {
@@ -35,16 +39,22 @@ class SignUpViewController: UIViewController {
 
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y == 0{
-                self.view.frame.origin.y -= keyboardSize.height
+            if((currentTextField?.frame.minY)! > keyboardSize.height){
+                signUpButtonBottomConstraint.constant -= -(keyboardSize.height - (currentTextField?.frame.minY)!)
             }
+            let animationDuration = (notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
+            UIView.animate(withDuration: animationDuration, animations: {
+                self.view.layoutIfNeeded()
+            })
         }
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
-        if self.view.frame.origin.y != 0{
-            self.view.frame.origin.y = 0
-        }
+        signUpButtonBottomConstraint.constant = -20
+        let animationDuration = (notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
+        UIView.animate(withDuration: animationDuration, animations: {
+            self.view.layoutIfNeeded()
+        })
     }
     
     @objc func dismissKeyboard(){
@@ -95,6 +105,11 @@ class SignUpViewController: UIViewController {
             
         }
     }
+    
+    @IBAction func editingDidBegin(_ sender: UITextField) {
+        currentTextField = sender
+    }
+    
     
     /*
     // MARK: - Navigation

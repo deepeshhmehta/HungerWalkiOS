@@ -204,6 +204,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="editStartedTextField:" destination="Zms-2p-UFX" eventType="editingDidBegin" id="t8d-Bc-j8g"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wYa-Mj-gVs">
                                 <rect key="frame" x="19.5" y="444" width="335" height="21"/>
@@ -216,6 +219,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="editStartedTextField:" destination="Zms-2p-UFX" eventType="editingDidBegin" id="sW5-lt-Qsh"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8h7-zM-kul">
                                 <rect key="frame" x="20.5" y="354" width="335" height="21"/>
@@ -244,12 +250,18 @@
                                 <state key="normal" title="Save">
                                     <color key="titleColor" red="0.67450980390000004" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="saveButtonTouched:" destination="Zms-2p-UFX" eventType="touchUpInside" id="ftO-jP-n93"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Kx-RL-E7K">
                                 <rect key="frame" x="20" y="200" width="335" height="44"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="editStartedTextField:" destination="Zms-2p-UFX" eventType="editingDidBegin" id="3dk-hc-Ovz"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AvL-cn-kVG">
                                 <rect key="frame" x="20" y="174" width="335" height="21"/>
@@ -300,6 +312,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5I9-Y5-quT"/>
                     </view>
+                    <connections>
+                        <outlet property="email" destination="UBP-5p-fRl" id="dv5-Kp-eBD"/>
+                        <outlet property="name" destination="7Kx-RL-E7K" id="oZl-41-cFR"/>
+                        <outlet property="password" destination="jtP-vm-sPe" id="5FJ-Pv-Pwl"/>
+                        <outlet property="phone" destination="MeS-xv-SQJ" id="X5M-Rl-wos"/>
+                        <outlet property="saveButtonBottomConstraint" destination="y1M-CF-yFh" id="DxA-4f-UDe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xld-UY-RLl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -366,7 +385,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sMO-o3-xXb"/>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="rnQ-Wg-BJ7"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="favouriteListTable" destination="Mbr-H9-yeQ" id="cur-yr-749"/>
                         <segue destination="FcR-Ie-jv0" kind="show" identifier="FavouritesToMenuSegue" id="MUe-Rd-H2l"/>

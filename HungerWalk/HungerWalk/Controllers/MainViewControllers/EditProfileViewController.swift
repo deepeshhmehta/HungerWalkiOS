@@ -10,6 +10,14 @@ import UIKit
 
 class EditProfileViewController: UIViewController {
 
+    
+    @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var email: UITextField!
+    @IBOutlet weak var phone: UITextField!
+    @IBOutlet weak var name: UITextField!
+    @IBOutlet weak var saveButtonBottomConstraint: NSLayoutConstraint!
+    var currentTextBox: UITextField?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,14 +30,34 @@ class EditProfileViewController: UIViewController {
         self.title = "Edit Profile"
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        let data = ["user_id": DataFunctionStore.BasicData?.userID] as! [String: Int]
+        DataFunctionStore.getUserData(data: data, completion:{ result in
+            switch(result){
+            case .success(let data):
+                self.name.text = data["name"] as? String
+                self.phone.text = data["phone"] as? String
+                self.email.text = data["email"] as? String
+                self.password.text = data["password"] as? String
+            case .failure(let error):
+                DataFunctionStore.showToast(message: error["Error"] as! String, controller: self)
+                
+            }
+        })
+    }
+    
     @objc func dismissKeyboard(){
         view.endEditing(true)
     }
+    
     
     @objc func keyboardWillShow(notification: NSNotification) {
         
         if let userInfo = notification.userInfo{
             if let keyboardSize = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+                if((currentTextBox?.frame.minY)! > keyboardSize.height){
+                    saveButtonBottomConstraint.constant -= -(keyboardSize.height - (currentTextBox?.frame.minY)!)
+                }
             }
             let animationDuration = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
             UIView.animate(withDuration: animationDuration, animations: {
@@ -43,6 +71,8 @@ class EditProfileViewController: UIViewController {
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
+        
+        saveButtonBottomConstraint.constant = -20
         let animationDuration = (notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
         UIView.animate(withDuration: animationDuration, animations: {
             self.view.layoutIfNeeded()
@@ -55,7 +85,30 @@ class EditProfileViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    
+    @IBAction func editStartedTextField(_ sender: UITextField) {
+        currentTextBox = sender
+    }
+    
+    @IBAction func saveButtonTouched(_ sender: Any) {
+        let data = [
+            "name" : name.text!,
+            "phone" : phone.text!,
+            "email" : email.text!,
+            "password": password.text!,
+            "user_id": (DataFunctionStore.BasicData?.userID)!
+            ] as [String : Any]
+        
+        DataFunctionStore.updateUserData(data: data, completion: { result in
+            switch result{
+            case .success(let success):
+                DataFunctionStore.showToast(message: success["SUCCESS"] as! String, controller: self)
+            case .failure(let failure):
+                DataFunctionStore.showToast(message: failure["FAILURE"] as! String, controller: self)
+            }
+        })
+        
+    }
     /*
     // MARK: - Navigation
 

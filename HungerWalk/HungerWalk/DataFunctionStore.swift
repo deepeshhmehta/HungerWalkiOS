@@ -16,7 +16,7 @@ enum ResultCompletion {
 }
 
 class DataFunctionStore: NSObject {
-    static let domain = "http://192.168.0.26:5050/hunger-walk/API/"
+    static let domain = "http://10.51.213.216:5050/hunger-walk/API/"
     
     static let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
     
@@ -27,6 +27,8 @@ class DataFunctionStore: NSObject {
     static var restaurentTableData: [Restaurent]?
     
     static var favouriteTableData: [Restaurent]?
+    
+    static var cart: [Item]?
     
     static func goToLogin(currentViewController : UIViewController){
         DataFunctionStore.BasicData?.tutorialComplete = true
@@ -200,5 +202,34 @@ class DataFunctionStore: NSObject {
                     completion(.failure(["message": "Wrong Connection"]))
                 }
         }
+    }
+    
+    static func getUserData(data: [String: Int], completion: @escaping (ResultCompletion) -> Void){
+        let url = DataFunctionStore.domain + "userDataAPI.php"
+        
+        Alamofire.request(url, method: .post, parameters: data, encoding: URLEncoding.default, headers: [:])
+            .responseJSON{response in
+                if(response.response?.statusCode == 200){
+                    let result = response.result.value as! [String : Any]
+                        completion(.success(result))
+                    
+                }else{
+                    completion(.failure(["Error" : "Unable to Connect"]))
+                }
+        }
+    }
+    
+    static func updateUserData(data: [String: Any], completion: @escaping (ResultCompletion) -> Void){
+        let url = domain + "updateUserDataAPI.php"
+        Alamofire.request(url, method: .post, parameters: data, encoding: URLEncoding.default, headers: [:])
+        .response(completionHandler: { responded in
+            if(responded.response?.statusCode == 200){
+                completion(.success(["SUCCESS": "Data Updated"]))
+            }else{
+                completion(.failure(["FAILURE": "Connection Error"]))
+            }
+            
+        })
+        
     }
 }
