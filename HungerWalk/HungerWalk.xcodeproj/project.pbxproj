@@ -21,6 +21,7 @@
 		7951C9B8211BFB24005502EC /* FavouritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7951C9B7211BFB24005502EC /* FavouritesTableViewCell.swift */; };
 		7951C9BA211C050A005502EC /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7951C9B9211C050A005502EC /* MenuTableViewController.swift */; };
 		7951C9BC211C0DCA005502EC /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7951C9BB211C0DCA005502EC /* Item.swift */; };
+		7951C9BE211C1D3F005502EC /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7951C9BD211C1D3F005502EC /* EditProfileViewController.swift */; };
 		79CAE76E2111803100B42B2E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CAE76D2111803100B42B2E /* MainViewController.swift */; };
 		79CAE7702111829600B42B2E /* Restaurent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CAE76F2111829600B42B2E /* Restaurent.swift */; };
 		79CAE7722111903800B42B2E /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CAE7712111903800B42B2E /* FavouritesViewController.swift */; };
@@ -53,6 +54,7 @@
 		7951C9B7211BFB24005502EC /* FavouritesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesTableViewCell.swift; sourceTree = "<group>"; };
 		7951C9B9211C050A005502EC /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		7951C9BB211C0DCA005502EC /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		7951C9BD211C1D3F005502EC /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		79CAE76D2111803100B42B2E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		79CAE76F2111829600B42B2E /* Restaurent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurent.swift; sourceTree = "<group>"; };
 		79CAE7712111903800B42B2E /* FavouritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +116,26 @@
 			path = Maps_Data;
 			sourceTree = "<group>";
 		};
+		7951C9BF211C1DBC005502EC /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				79CFA3E720F544A20049138D /* Tutorial.storyboard */,
+				79CFA3F9210058320049138D /* Login.storyboard */,
+				7948BB7A210A279700AFF915 /* Main.storyboard */,
+			);
+			path = StoryBoards;
+			sourceTree = "<group>";
+		};
+		7951C9C0211C1DDE005502EC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				79CFA3FB210059AE0049138D /* TutorialViewControllers */,
+				79CFA3FC210059CF0049138D /* LoginViewControllers */,
+				79CAE76C21117DF500B42B2E /* MainViewControllers */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		79CAE76C21117DF500B42B2E /* MainViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +146,7 @@
 				7951C9B52118DA16005502EC /* SettingsViewController.swift */,
 				7951C9B7211BFB24005502EC /* FavouritesTableViewCell.swift */,
 				7951C9B9211C050A005502EC /* MenuTableViewController.swift */,
+				7951C9BD211C1D3F005502EC /* EditProfileViewController.swift */,
 			);
 			path = MainViewControllers;
 			sourceTree = "<group>";
@@ -149,20 +172,16 @@
 		79CFA3E020F544A10049138D /* HungerWalk */ = {
 			isa = PBXGroup;
 			children = (
+				7951C9C0211C1DDE005502EC /* Controllers */,
+				7951C9BF211C1DBC005502EC /* StoryBoards */,
 				7948BB732109AE4A00AFF915 /* Maps_Data */,
 				7948BB6A2109A68100AFF915 /* Managed Objects */,
 				791748EB21091258008195B3 /* DataFunctionStore.swift */,
-				79CFA3FB210059AE0049138D /* TutorialViewControllers */,
 				79CFA3E120F544A10049138D /* AppDelegate.swift */,
 				7917490E210915D3008195B3 /* HungerWalk.xcdatamodeld */,
-				79CFA3E720F544A20049138D /* Tutorial.storyboard */,
 				79CFA3EA20F544A50049138D /* Assets.xcassets */,
-				79CFA3F9210058320049138D /* Login.storyboard */,
-				79CFA3FC210059CF0049138D /* LoginViewControllers */,
 				79CFA3EC20F544A50049138D /* LaunchScreen.storyboard */,
 				79CFA3EF20F544A50049138D /* Info.plist */,
-				7948BB7A210A279700AFF915 /* Main.storyboard */,
-				79CAE76C21117DF500B42B2E /* MainViewControllers */,
 			);
 			path = HungerWalk;
 			sourceTree = "<group>";
@@ -321,6 +340,7 @@
 				79CFA3FE210059F60049138D /* LoginViewController.swift in Sources */,
 				7951C9BC211C0DCA005502EC /* Item.swift in Sources */,
 				79CFA4002100F7290049138D /* TutorialViewController.swift in Sources */,
+				7951C9BE211C1D3F005502EC /* EditProfileViewController.swift in Sources */,
 				79CFA3E620F544A20049138D /* SecondTutorialViewController.swift in Sources */,
 				7951C9B8211BFB24005502EC /* FavouritesTableViewCell.swift in Sources */,
 				79174910210915D3008195B3 /* HungerWalk.xcdatamodeld in Sources */,
