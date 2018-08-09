@@ -10,16 +10,31 @@ import UIKit
 
 class FavouritesViewController: UIViewController {
     @IBOutlet var favouriteListTable: UITableView!
+    var current: Restaurent?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        DataFunctionStore.getFavouriteRestaurantAPI(controller: self)
+        
+        self.title = "Favourites"
         // Do any additional setup after loading the view.
     }
-
+    override func viewWillAppear(_ animated: Bool) {
+        DataFunctionStore.getFavouriteRestaurantAPI(controller: self)
+        favouriteListTable.reloadData()
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "FavouritesToMenuSegue" {
+            guard let vc = segue.destination as? MenuTableViewController else{
+                return
+            }
+            vc.current = current
+            vc.title = current?.R_NAME
+        }
     }
     
 
@@ -41,12 +56,23 @@ extension FavouritesViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = DataFunctionStore.favouriteTableData![indexPath.row].R_NAME
-        
+        let cell = favouriteListTable.dequeueReusableCell(withIdentifier: "FavouritesTableViewCell", for: indexPath) as! FavouritesTableViewCell
+        current = DataFunctionStore.favouriteTableData![indexPath.row]
+        cell.restaurentName?.text = current?.R_NAME
+        cell.restaurentAddress?.text = current?.R_ADDESS
         return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100.0
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        current = DataFunctionStore.favouriteTableData![indexPath.row]
+        self.performSegue(withIdentifier: "FavouritesToMenuSegue", sender: nil)
+        
+    }
     
 }
 

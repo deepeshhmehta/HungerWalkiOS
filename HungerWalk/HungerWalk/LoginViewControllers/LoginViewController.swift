@@ -9,13 +9,14 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-
+    var keyboardShown: Bool = false
     @IBOutlet var email: UITextField!
     
     @IBOutlet var password: UITextField!
     
     @IBOutlet var logo: UIImageView!
     
+    @IBOutlet var LoginBottomConstraint: NSLayoutConstraint!
     var keyboardAdjusted = false
     var lastKeyboardOffset: CGFloat = 0.0
 
@@ -26,10 +27,15 @@ class LoginViewController: UIViewController {
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
+
+        self.title = "Login"
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+    }
     override func viewDidAppear(_ animated: Bool) {
-            animateLogo()
+        animateLogo()
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,16 +44,30 @@ class LoginViewController: UIViewController {
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            
-            if self.view.frame.origin.y == 0{
-                self.view.frame.origin.y -= keyboardSize.height
+        
+        if let userInfo = notification.userInfo{
+            if let keyboardSize = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+                self.LoginBottomConstraint.constant = -keyboardSize.height - 20
             }
+            let animationDuration = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
+            UIView.animate(withDuration: animationDuration, animations: {
+                self.view.layoutIfNeeded()
+            })
         }
+        
+        
+        
+        
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
-        self.view.frame.origin.y = 0
+       
+        self.LoginBottomConstraint.constant = -20
+        let animationDuration = (notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
+        UIView.animate(withDuration: animationDuration, animations: {
+            self.view.layoutIfNeeded()
+        })
+
     }
 
     @objc func dismissKeyboard(){
@@ -65,34 +85,32 @@ class LoginViewController: UIViewController {
             return
         }
         
-        DataFunctionStore.checkLogin(data: ["EMAIL": email.text!, "PASSWORD": password.text!])
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            if(DataFunctionStore.BasicData?.logInSuccess)!{
+        DataFunctionStore.checkLoginCompletion(data: ["EMAIL": email.text!, "PASSWORD": password.text!], completion: {result in
+            
+            DataFunctionStore.BasicData?.logInSuccess = result["SUCCESS"] as! Bool
+            if (result["SUCCESS"] as? Bool) ?? false {
+                DataFunctionStore.BasicData?.userID = result["ID"] as! Int
+                DataFunctionStore.BasicData?.username = result["NAME"] as! String
+                DataFunctionStore.appDelegate.saveContext()
                 DataFunctionStore.showToast(message: "Login Success", controller: self)
                 DataFunctionStore.goToMainScreen(currentViewController: self)
             }else{
-                DataFunctionStore.showToast(message: "Login Failed", controller: self)
+                 DataFunctionStore.showToast(message: "Login Failed", controller: self)
             }
-        }
-       
-        
+            
+            
+        })
     }
     
-    @IBAction func signUpTouched(_ sender: Any) {
-       let signUpViewController = storyboard?.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
-        self.present(signUpViewController, animated: true)
-    }
     
-    @IBAction func forgotPasswordTouched(_ sender: Any){
-        let forgotPassword = storyboard?.instantiateViewController(withIdentifier: "ForgotPasswordViewController") as! ForgotPasswordViewController
-        self.present(forgotPassword, animated: true)
-    }
     
     func animateLogo(){
         UIView.animateKeyframes(withDuration: 1.0, delay: 0.0, options: [.repeat, .autoreverse], animations: {
             self.logo.transform = CGAffineTransform.identity.scaledBy(x: 2.5, y: 2.5)
             
-        }, completion: nil)
+        }, completion: { result in
+            self.logo.transform = CGAffineTransform.identity.scaledBy(x: 1.0, y: 1.0)
+        })
     }
 }
 

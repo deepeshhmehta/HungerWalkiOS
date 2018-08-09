@@ -25,6 +25,23 @@
                                     <constraint firstAttribute="width" secondItem="tTk-St-gfx" secondAttribute="height" multiplier="1:1" id="ERR-1F-j7L"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gfS-sS-evy" userLabel="Sign Up">
+                                <rect key="frame" x="307" y="84" width="87" height="36"/>
+                                <color key="backgroundColor" red="0.086274509799999996" green="0.1215686275" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="  Sign Up  ">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="ROW-24-7mE" kind="show" id="Pfe-Q1-AXW"/>
+                                </connections>
+                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="YZo-K4-Qxd">
                                 <rect key="frame" x="10" y="500" width="394" height="30"/>
                                 <nil key="textColor"/>
@@ -58,24 +75,7 @@
                                 <rect key="frame" x="180.66666666666666" y="630" width="53" height="30"/>
                                 <state key="normal" title="Forgot?"/>
                                 <connections>
-                                    <action selector="forgotPasswordTouched:" destination="cSW-kt-5C4" eventType="touchUpInside" id="3og-Et-YZA"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gfS-sS-evy" userLabel="Sign Up">
-                                <rect key="frame" x="307" y="84" width="87" height="36"/>
-                                <color key="backgroundColor" red="0.086274509799999996" green="0.1215686275" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="  Sign Up  ">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="signUpTouched:" destination="cSW-kt-5C4" eventType="touchUpInside" id="cGK-Gk-e6x"/>
+                                    <segue destination="tUz-Pe-E9B" kind="show" id="U8I-vh-yDd"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -103,6 +103,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="aSX-aR-TV6"/>
                     <connections>
+                        <outlet property="LoginBottomConstraint" destination="9ZH-Um-fiR" id="fI6-id-TIj"/>
                         <outlet property="email" destination="YZo-K4-Qxd" id="zhc-K6-Mxh"/>
                         <outlet property="logo" destination="tTk-St-gfx" id="xHx-w5-6yw"/>
                         <outlet property="password" destination="dqP-w1-uUi" id="vSd-Cs-wi5"/>
@@ -192,6 +193,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CWN-y6-OCV"/>
                     </view>
+                    <navigationItem key="navigationItem" id="4zx-QY-AsY"/>
                     <connections>
                         <outlet property="confirm_password" destination="6Pj-G5-a6H" id="CQc-et-LzM"/>
                         <outlet property="email" destination="kHY-iW-J5s" id="c79-uC-gG3"/>
@@ -202,7 +204,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gJm-1d-ZCK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2000.8" y="-38.23088455772114"/>
+            <point key="canvasLocation" x="1919" y="-217"/>
         </scene>
         <!--Forgot Password View Controller-->
         <scene sceneID="sG3-7s-7qN">
@@ -211,18 +213,31 @@
                     <view key="view" contentMode="scaleToFill" id="IZy-n0-Svu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Support" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CQo-Io-dkl">
+                                <rect key="frame" x="143.33333333333334" y="389.66666666666669" width="127.33333333333334" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.67450980390000004" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="CQo-Io-dkl" firstAttribute="centerX" secondItem="aDa-fJ-jUT" secondAttribute="centerX" id="5K1-ky-9NA"/>
+                            <constraint firstItem="CQo-Io-dkl" firstAttribute="centerY" secondItem="aDa-fJ-jUT" secondAttribute="centerY" id="sr0-Eo-3Wl"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="aDa-fJ-jUT"/>
                     </view>
+                    <navigationItem key="navigationItem" id="sjV-BP-Ybz"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="06V-rJ-5uX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1991" y="672"/>
+            <point key="canvasLocation" x="1919" y="607"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="b1k-Z8-ISh">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LCl-Fp-eWm" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="LoginViewNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="LCl-Fp-eWm" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2Zu-WR-b5v">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
@@ -230,7 +245,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="cSW-kt-5C4" kind="relationship" relationship="rootViewController" id="tCe-z8-9RC"/>
+                        <segue destination="cSW-kt-5C4" kind="relationship" relationship="rootViewController" id="qw7-ps-Ts9"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lD6-OR-22e" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -26,9 +26,11 @@ class SignUpViewController: UIViewController {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SignUpViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         
-        let swipeLeft: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(SignUpViewController.swipedLeft))
+//        let swipeLeft: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(SignUpViewController.swipedLeft))
+//        
+//        view.addGestureRecognizer(swipeLeft)
         
-        view.addGestureRecognizer(swipeLeft)
+        self.title = "Sign Up"
     }
 
     @objc func keyboardWillShow(notification: NSNotification) {
@@ -52,6 +54,7 @@ class SignUpViewController: UIViewController {
     @objc func swipedLeft(){
         print("swiped")
         DataFunctionStore.goToLogin(currentViewController: self)
+        self.removeFromParentViewController()
         self.view.removeFromSuperview()
     }
     

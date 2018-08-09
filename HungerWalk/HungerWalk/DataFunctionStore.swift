@@ -10,8 +10,13 @@ import UIKit
 import CoreData
 import Alamofire
 
+enum ResultCompletion {
+    case success([String: Any])
+    case failure([String: Any])
+}
+
 class DataFunctionStore: NSObject {
-    static let domain = "http://192.168.0.26:5050/hunger-walk/"
+    static let domain = "http://192.168.0.26:5050/hunger-walk/API/"
     
     static let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
     
@@ -29,16 +34,15 @@ class DataFunctionStore: NSObject {
         
         let storyBoard : UIStoryboard = UIStoryboard(name: "Login", bundle:nil)
         
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewNavigationController") as! UINavigationController
         currentViewController.present(nextViewController, animated:true, completion:{
             currentViewController.removeFromParentViewController()
         })
+        
     }
     
+    
     static func goToMainScreen(currentViewController : UIViewController){
-        DataFunctionStore.BasicData?.tutorialComplete = true
-        DataFunctionStore.appDelegate.saveContext()
-        
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "LandingScreen") as! UITabBarController
@@ -95,40 +99,18 @@ class DataFunctionStore: NSObject {
     }
     
     //Alamofire
-    static func networkTest(){
-        Alamofire.request(DataFunctionStore.domain + "getRestaurantAPI.php").responseJSON{ response in
-//            dump(response.result.value)
-        }
-        
-    }
     
-    static func checkLogin(data: [String: String]){
-        //check login true or false with alamofire
-        
+    static func checkLoginCompletion(data: [String: String], completion: @escaping ([String: Any]) -> Void){
         let url = DataFunctionStore.domain + "LoginAPI.php"
         
         Alamofire.request(url, method: .post, parameters: data, encoding: URLEncoding.default, headers: [:])
             .responseJSON{response in
                 
-                let result = response.result.value as? NSDictionary
-                
-                
-                if((result?.value(forKey: "SUCCESS")) as! Bool){
-                    print("bool true")
-                    DataFunctionStore.BasicData?.username =  result?.value(forKey: "NAME") as! String
-                    DataFunctionStore.BasicData?.userID = Int(result?.value(forKey: "ID") as! String)!
-                    DataFunctionStore.appDelegate.saveContext()
-                    
-                    
-                }else{
-                    print("bool false")
-                    
-                }
-                DataFunctionStore.BasicData?.logInSuccess = result?.value(forKey: "SUCCESS") as! Bool
-                DataFunctionStore.appDelegate.saveContext()
+                let result = response.result.value as! [String : Any]
+                completion(result)
         }
-        
     }
+    
     
     static func addUser(data: [String : String], controller: UIViewController){
         let url = DataFunctionStore.domain + "Signup.php"
@@ -142,16 +124,18 @@ class DataFunctionStore: NSObject {
     
     static func getRestaurantAPI(controller: UIViewController){
         let url = DataFunctionStore.domain + "getRestaurantAPI.php"
-        Alamofire.request(url, method: .post, parameters: nil, encoding: URLEncoding.default, headers: [:])
+        let data = ["USER_ID" : DataFunctionStore.BasicData?.userID]
+        Alamofire.request(url, method: .post, parameters: data, encoding: URLEncoding.default, headers: [:])
             .responseJSON{response in
                 let result = response.result.value as? NSDictionary
                 var restaurentTableData : [Restaurent] = []
                 
                 for rest in result?.value(forKey: "RestaurantList") as! [NSDictionary]{
                     let restaurent = Restaurent()
-                    restaurent.ID = Int(rest.value(forKey: "ID") as! String)!
+                    restaurent.ID = rest.value(forKey: "ID") as! Int
                     restaurent.R_ADDESS = rest.value(forKey: "R_ADDESS") as! String
                     restaurent.R_NAME = rest.value(forKey: "R_NAME") as! String
+                    restaurent.IS_FAV = rest.value(forKey: "IS_FAV") as! Bool
                     restaurentTableData.append(restaurent)
                 }
                 
@@ -181,5 +165,40 @@ class DataFunctionStore: NSObject {
                 (controller as! FavouritesViewController).favouriteListTable.reloadData()
         }
         
+    }
+    
+    static func toggleLike(data: [String: Any], completion: @escaping () -> Void){
+        let url = DataFunctionStore.domain + "addRemoveFavourite.php"
+        Alamofire.request(url, method: .post, parameters: data, encoding: URLEncoding.default, headers: [:])
+        .response(completionHandler: {result in
+            completion()
+        })
+    }
+    
+    static func getMenuItems(current: Restaurent, completion: @escaping (ResultCompletion) -> Void){
+        let url = DataFunctionStore.domain + "getMenuAPI.php"
+        Alamofire.request(url, method: .post, parameters: ["R_ID" : current.ID], encoding: URLEncoding.default, headers: [:])
+            .responseJSON{response in
+                if (response.response?.statusCode == 200){
+                    let result = response.result.value as? [[String: Any]]
+                    var menuTableData : [Item] = []
+                    
+                    for item in result!{
+                        let menuItem = Item()
+                        menuItem.I_NAME = item["I_NAME"] as! String
+                        menuItem.DESCRIPTION = item["DESCRIPTION"] as! String
+                        menuItem.STATUS = item["STATUS"] as! String
+                        menuItem.ID = item["ID"] as! Int
+                        menuItem.PRICE = item["PRICE"] as! Int
+                        menuItem.R_ID = item["R_ID"] as! Int
+                        
+                        menuTableData.append(menuItem)
+                    }
+                    
+                    completion(.success(["tableData": menuTableData]))
+                }else{
+                    completion(.failure(["message": "Wrong Connection"]))
+                }
+        }
     }
 }
