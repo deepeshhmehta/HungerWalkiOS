@@ -10,6 +10,7 @@
 		03C6E6AF3357EC26ECCDC8A7 /* Pods_HungerWalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A41E91B47B091462EA57AB /* Pods_HungerWalk.framework */; };
 		791748EC21091258008195B3 /* DataFunctionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791748EB21091258008195B3 /* DataFunctionStore.swift */; };
 		79174910210915D3008195B3 /* HungerWalk.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7917490E210915D3008195B3 /* HungerWalk.xcdatamodeld */; };
+		792055C42120E237006FAF67 /* MenuItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792055C32120E237006FAF67 /* MenuItemTableViewCell.swift */; };
 		7948BB712109A70E00AFF915 /* BasicData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7948BB6F2109A70E00AFF915 /* BasicData+CoreDataClass.swift */; };
 		7948BB722109A70E00AFF915 /* BasicData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7948BB702109A70E00AFF915 /* BasicData+CoreDataProperties.swift */; };
 		7948BB752109AE9400AFF915 /* BasicData_map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7948BB742109AE9400AFF915 /* BasicData_map.swift */; };
@@ -43,6 +44,7 @@
 		42F7A0C009E2CF425E693F0A /* Pods-HungerWalk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HungerWalk.release.xcconfig"; path = "Pods/Target Support Files/Pods-HungerWalk/Pods-HungerWalk.release.xcconfig"; sourceTree = "<group>"; };
 		791748EB21091258008195B3 /* DataFunctionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFunctionStore.swift; sourceTree = "<group>"; };
 		7917490F210915D3008195B3 /* HungerWalk.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HungerWalk.xcdatamodel; sourceTree = "<group>"; };
+		792055C32120E237006FAF67 /* MenuItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemTableViewCell.swift; sourceTree = "<group>"; };
 		7948BB6F2109A70E00AFF915 /* BasicData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BasicData+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7948BB702109A70E00AFF915 /* BasicData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BasicData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7948BB742109AE9400AFF915 /* BasicData_map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicData_map.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				7951C9B7211BFB24005502EC /* FavouritesTableViewCell.swift */,
 				7951C9B9211C050A005502EC /* MenuTableViewController.swift */,
 				7951C9BD211C1D3F005502EC /* EditProfileViewController.swift */,
+				792055C32120E237006FAF67 /* MenuItemTableViewCell.swift */,
 			);
 			path = MainViewControllers;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				7951C9BC211C0DCA005502EC /* Item.swift in Sources */,
 				79CFA4002100F7290049138D /* TutorialViewController.swift in Sources */,
 				7951C9BE211C1D3F005502EC /* EditProfileViewController.swift in Sources */,
+				792055C42120E237006FAF67 /* MenuItemTableViewCell.swift in Sources */,
 				79CFA3E620F544A20049138D /* SecondTutorialViewController.swift in Sources */,
 				7951C9B8211BFB24005502EC /* FavouritesTableViewCell.swift in Sources */,
 				79174910210915D3008195B3 /* HungerWalk.xcdatamodeld in Sources */,

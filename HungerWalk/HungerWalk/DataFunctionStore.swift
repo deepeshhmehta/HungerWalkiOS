@@ -16,7 +16,7 @@ enum ResultCompletion {
 }
 
 class DataFunctionStore: NSObject {
-    static let domain = "http://10.51.213.216:5050/hunger-walk/API/"
+    static let domain = "http://192.168.0.25:5050/hunger-walk/API/"
     
     static let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
     
@@ -28,7 +28,7 @@ class DataFunctionStore: NSObject {
     
     static var favouriteTableData: [Restaurent]?
     
-    static var cart: [Item]?
+    static var cart: [Item : Int] = [:]
     
     static func goToLogin(currentViewController : UIViewController){
         DataFunctionStore.BasicData?.tutorialComplete = true
@@ -107,9 +107,13 @@ class DataFunctionStore: NSObject {
         
         Alamofire.request(url, method: .post, parameters: data, encoding: URLEncoding.default, headers: [:])
             .responseJSON{response in
-                
-                let result = response.result.value as! [String : Any]
-                completion(result)
+                if response.response?.statusCode == 200{
+                    let result = response.result.value as! [String : Any]
+                        completion(result)
+                    
+                }else{
+                    completion(["SUCCESS": false])
+                }
         }
     }
     
@@ -126,7 +130,7 @@ class DataFunctionStore: NSObject {
     
     static func getRestaurantAPI(controller: UIViewController){
         let url = DataFunctionStore.domain + "getRestaurantAPI.php"
-        let data = ["USER_ID" : DataFunctionStore.BasicData?.userID]
+        let data = ["USER_ID" : DataFunctionStore.BasicData?.userID ?? 0] as [String: Any]
         Alamofire.request(url, method: .post, parameters: data, encoding: URLEncoding.default, headers: [:])
             .responseJSON{response in
                 let result = response.result.value as? NSDictionary

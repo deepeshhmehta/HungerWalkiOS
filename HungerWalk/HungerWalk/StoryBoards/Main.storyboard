@@ -108,13 +108,71 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MenuCell" id="Yku-be-LrG">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MenuItemTableViewCell" rowHeight="196" id="Yku-be-LrG" customClass="MenuItemTableViewCell" customModule="HungerWalk" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="196"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Yku-be-LrG" id="I2V-Bw-WY5">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="195.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jeu-XU-Dmg">
+                                            <rect key="frame" x="20" y="67" width="271" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Um4-17-bUx">
+                                            <rect key="frame" x="318" y="29.5" width="30" height="48"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                            <state key="normal" title="+"/>
+                                            <connections>
+                                                <action selector="addCountPressed:" destination="Yku-be-LrG" eventType="touchUpInside" id="kpc-4j-woE"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lLS-C7-H2Z">
+                                            <rect key="frame" x="318" y="118.5" width="30" height="48"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                            <state key="normal" title="-"/>
+                                            <connections>
+                                                <action selector="reduceCountPressed:" destination="Yku-be-LrG" eventType="touchUpInside" id="vTH-9W-MRW"/>
+                                            </connections>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cny-g7-IfV">
+                                            <rect key="frame" x="311" y="87.5" width="44" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="44" id="vML-PZ-Om3"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQO-fd-T6k">
+                                            <rect key="frame" x="20" y="108" width="271" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Cny-g7-IfV" firstAttribute="centerY" secondItem="I2V-Bw-WY5" secondAttribute="centerY" id="13s-M4-jcE"/>
+                                        <constraint firstItem="dQO-fd-T6k" firstAttribute="width" secondItem="jeu-XU-Dmg" secondAttribute="width" id="1TK-jb-22k"/>
+                                        <constraint firstItem="jeu-XU-Dmg" firstAttribute="leading" secondItem="I2V-Bw-WY5" secondAttribute="leading" constant="20" id="CEJ-hs-9js"/>
+                                        <constraint firstItem="Um4-17-bUx" firstAttribute="bottom" secondItem="Cny-g7-IfV" secondAttribute="top" constant="-10" id="I0Y-RO-YeC"/>
+                                        <constraint firstItem="dQO-fd-T6k" firstAttribute="top" secondItem="I2V-Bw-WY5" secondAttribute="centerY" constant="10" id="II6-Vy-U40"/>
+                                        <constraint firstItem="dQO-fd-T6k" firstAttribute="leading" secondItem="jeu-XU-Dmg" secondAttribute="leading" id="VK8-qw-InS"/>
+                                        <constraint firstItem="lLS-C7-H2Z" firstAttribute="centerX" secondItem="Cny-g7-IfV" secondAttribute="centerX" id="VzV-G8-cdR"/>
+                                        <constraint firstItem="jeu-XU-Dmg" firstAttribute="trailing" secondItem="Cny-g7-IfV" secondAttribute="leading" constant="-20" id="p25-zx-bpa"/>
+                                        <constraint firstItem="lLS-C7-H2Z" firstAttribute="top" secondItem="Cny-g7-IfV" secondAttribute="bottom" constant="10" id="rwu-yv-KC5"/>
+                                        <constraint firstItem="Cny-g7-IfV" firstAttribute="trailing" secondItem="I2V-Bw-WY5" secondAttribute="trailing" constant="-20" id="s9q-1Y-r6k"/>
+                                        <constraint firstItem="jeu-XU-Dmg" firstAttribute="bottom" secondItem="I2V-Bw-WY5" secondAttribute="centerY" constant="-10" id="v0B-Qg-2XF"/>
+                                        <constraint firstItem="Um4-17-bUx" firstAttribute="centerX" secondItem="Cny-g7-IfV" secondAttribute="centerX" id="yyI-id-0Tx"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="itemCount" destination="Cny-g7-IfV" id="J4g-ec-13t"/>
+                                    <outlet property="itemDesc" destination="dQO-fd-T6k" id="GVP-lX-a13"/>
+                                    <outlet property="itemTitle" destination="jeu-XU-Dmg" id="cTk-wQ-LWE"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -128,7 +186,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3CX-tc-jhy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2104" y="269"/>
+            <point key="canvasLocation" x="2103.1999999999998" y="268.51574212893553"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="jkX-5P-zC8">
@@ -386,7 +444,15 @@
                         <viewLayoutGuide key="safeArea" id="sMO-o3-xXb"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="rnQ-Wg-BJ7"/>
+                    <navigationItem key="navigationItem" id="rnQ-Wg-BJ7">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="XxL-AH-x2r">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gat-b6-jYE">
+                                <rect key="frame" x="334" y="9.5" width="25" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="shopping_cart"/>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="favouriteListTable" destination="Mbr-H9-yeQ" id="cur-yr-749"/>
@@ -478,6 +544,7 @@
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
+        <image name="shopping_cart" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="MUe-Rd-H2l"/>
