@@ -22,6 +22,14 @@ class MenuTableViewController: UITableViewController {
             switch result{
             case .success(let data):
                 self.tableData = data["tableData"] as? [Item]
+                let cartItems = Array(DataFunctionStore.cart.keys)
+                for item in self.tableData!{
+                    if let index = cartItems.index(where: { cartItem in
+                        cartItem.ID == item.ID
+                    }) {
+                        self.tableData![(self.tableData?.index(of: item))!] = cartItems[index]
+                    }
+                }
                 self.menuTable.reloadData()
             case .failure(let data):
                 DataFunctionStore.showToast(message: data["message"] as! String, controller: self)
@@ -62,11 +70,6 @@ class MenuTableViewController: UITableViewController {
         cell.delegate = self
         return cell
     }
- 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        
-    }
 
 }
 
@@ -76,11 +79,11 @@ extension MenuTableViewController: MenuItemTableViewCellDelegate{
         let increment: Int = addTrueReduceFalse ? 1 : -1
         DataFunctionStore.cart[currentItem] = (DataFunctionStore.cart[currentItem] ?? 0) + increment
         
-        if(DataFunctionStore.cart[currentItem]! < 0){
-            DataFunctionStore.cart[currentItem] =  0
+        if(DataFunctionStore.cart[currentItem]! < 1){
+            DataFunctionStore.cart[currentItem] =  nil
         }
         cell.itemCount.text = String(DataFunctionStore.cart[currentItem] ?? 0)
-        dump(DataFunctionStore.cart[currentItem])
+        
     }
     
     

@@ -197,6 +197,7 @@ class DataFunctionStore: NSObject {
                         menuItem.ID = item["ID"] as! Int
                         menuItem.PRICE = item["PRICE"] as! Int
                         menuItem.R_ID = item["R_ID"] as! Int
+                        menuItem.Restaurent = current
                         
                         menuTableData.append(menuItem)
                     }
@@ -235,5 +236,75 @@ class DataFunctionStore: NSObject {
             
         })
         
+    }
+    
+    static func addOrder(data: [String: Any], completion: @escaping (ResultCompletion) -> Void){
+
+        for (rest_id,items) in data["rest_wise_items"] as! [Int: [[Item: Int]]] {
+
+            var amount = 0
+            
+            
+            for itemBlock in items{
+                for (item,count) in itemBlock{
+                    amount += item.PRICE
+                }
+            }
+            
+            let params = [
+                "user_id": data["user_id"] as! Int,
+                "rest_id": rest_id,
+                "count": items.count,
+                "amount": amount
+                
+            ]
+            
+            let url = domain + "addOrderMasterAPI.php"
+            dump(params)
+            Alamofire.request(url, method: .post, parameters: params, encoding: URLEncoding.default, headers: [:])
+                    .responseJSON(completionHandler: { response in
+                        if(response.response?.statusCode == 200){
+                            let order_id =  response.result.value as? Int ?? 0
+                            let data = ["order_id": order_id, "items": items] as [String : Any]
+                            DataFunctionStore.addOrderDetails(data: data, complete:{result in
+                                switch(result){
+                                    case .success(let success):
+                                        completion(.success(success))
+                                    case .failure(_):
+                                        completion(.failure(["FAILURE": "Unable to Place order Detail"]))
+                                }
+                            })
+                        }else{
+                            completion(.failure(["FAILURE": "Unable to Place order Master"]))
+                        }
+                    })
+        }
+        
+    }
+        
+    static func addOrderDetails(data: [String: Any],complete: @escaping (ResultCompletion) -> Void){
+        let items = data["items"] as! [[Item: Int]]
+        
+        for itemBlock in items {
+    
+            for (item,count) in itemBlock{
+                
+                let params = [
+                    "order_id": data["order_id"],
+                    "item_id": item.ID,
+                    "qty": count
+                ]
+                let url = domain + "addOrderDetailsAPI.php"
+                Alamofire.request(url, method: .post, parameters: params, encoding: URLEncoding.default, headers: [:])
+                .responseJSON(completionHandler: {response in
+                    if(response.response?.statusCode == 200){
+                        complete(.success(["SUCCESS" : 1]))
+                    }else{
+                        complete(.failure(["FAILURE": 0]))
+                    }
+                })
+            }
+            
+        }
     }
 }
