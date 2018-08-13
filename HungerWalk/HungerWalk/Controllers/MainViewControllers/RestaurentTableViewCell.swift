@@ -10,12 +10,16 @@ import UIKit
 
 protocol RestaurentTableViewCellDelegate: class {
     func likeButtonClicked(indexPathRow: Int)
+    func commentButtonClicked(indexPathRow: Int) -> Void
 }
 
 class RestaurentTableViewCell: UITableViewCell {
     @IBOutlet var retaurentName: UILabel!
     @IBOutlet var likeButton: UIButton!
     @IBOutlet var restaurentAddress: UILabel!
+    
+    @IBOutlet weak var commentButton: UIButton!
+    
     var indexPathRow: Int?
     weak var delegate: RestaurentTableViewCellDelegate?
     override func awakeFromNib() {
@@ -32,5 +36,11 @@ class RestaurentTableViewCell: UITableViewCell {
     @IBAction func likeTouched(_ sender: Any) {
         delegate?.likeButtonClicked(indexPathRow: indexPathRow!)
     }
+    
+    @IBAction func commentTouched(_ sender: UIButton) {
+       delegate?.commentButtonClicked(indexPathRow: indexPathRow!)
+//        UINavigationController().present(alertAction!, animated: true)
+    }
+    
 }
 

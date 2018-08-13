@@ -16,7 +16,7 @@ enum ResultCompletion {
 }
 
 class DataFunctionStore: NSObject {
-    static let domain = "http://192.168.0.25:5050/hunger-walk/API/"
+    static let domain = "http://10.51.213.216:5050/hunger-walk/API/"
     
     static let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
     
@@ -248,7 +248,7 @@ class DataFunctionStore: NSObject {
             
             
             for itemBlock in items{
-                for (item,count) in itemBlock{
+                for (item,_) in itemBlock{
                     amount += item.PRICE
                 }
             }
@@ -292,10 +292,10 @@ class DataFunctionStore: NSObject {
             for (item,count) in itemBlock{
                 
                 let params = [
-                    "order_id": data["order_id"],
+                    "order_id": data["order_id"]!,
                     "item_id": item.ID,
                     "qty": count
-                ]
+                    ] as [String:Any]
                 let url = domain + "addOrderDetailsAPI.php"
                 Alamofire.request(url, method: .post, parameters: params, encoding: URLEncoding.default, headers: [:])
                 .responseJSON(completionHandler: {response in
@@ -311,7 +311,6 @@ class DataFunctionStore: NSObject {
     }
     
     static func getOrders(completion: @escaping(ResultCompletion) -> Void){
-        print("go")
         let url = domain + "getOrdersAPI.php"
         let params = ["user_id": DataFunctionStore.BasicData?.userID ?? 0]
         Alamofire.request(url, method: .post, parameters: params, encoding: URLEncoding.default, headers: [:])
@@ -332,5 +331,17 @@ class DataFunctionStore: NSObject {
                     completion(.failure(["Failure": "Error in Connection"]))
                 }
             })
+    }
+    
+    static func addComment(params: [String: Any], completion: @escaping (ResultCompletion) -> Void){
+        let url = domain + "addCommentAPI.php"
+        Alamofire.request(url, method: .post, parameters: params, encoding: URLEncoding.default, headers: [:])
+        .responseJSON(completionHandler: {data in
+            if(data.response?.statusCode == 200){
+                completion(.success(["Success": data.result.value]))
+            }else{
+                completion(.failure(["Failure": data.result.value]))
+            }
+        })
     }
 }

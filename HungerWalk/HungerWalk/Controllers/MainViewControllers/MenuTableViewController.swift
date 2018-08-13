@@ -12,11 +12,10 @@ class MenuTableViewController: UITableViewController {
     var current: Restaurent?
     var tableData: [Item]?
     @IBOutlet var menuTable: UITableView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+       
     }
-    
     override func viewWillAppear(_ animated: Bool) {
         DataFunctionStore.getMenuItems(current: current!, completion: { result in
             switch result{

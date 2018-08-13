@@ -93,5 +93,38 @@ extension RestaurentsViewController: RestaurentTableViewCellDelegate{
         
     }
     
+    func commentButtonClicked(indexPathRow: Int) -> Void {
+        let current = DataFunctionStore.restaurentTableData![indexPathRow]
+        let dialogMessage = UIAlertController(title: "Comment on " + current.R_NAME, message: "Write a comment to be sent to the rest", preferredStyle: .alert)
+        
+        dialogMessage.addTextField(configurationHandler: {textfield in
+            textfield.placeholder = "Comment"
+        })
+        let ok = UIAlertAction(title: "OK", style: .default, handler: { action in
+            let data = ["user_id": DataFunctionStore.BasicData?.userID ?? 0,
+                        "rest_id": current.ID ,
+                        "comment": dialogMessage.textFields![0].text ?? "error in reading"] as [String : Any]
+            DataFunctionStore.addComment(params: data, completion:{ result in
+                switch(result){
+                    
+                case .success(_):
+                    DataFunctionStore.showToast(message: "Comment Submitted Successfully", controller: self)
+                case .failure(let error):
+                    dump(error)
+                    DataFunctionStore.showToast(message: "There was an error", controller: self)
+                }
+            })
+        })
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .default, handler: {alert in
+            
+        })
+        
+        dialogMessage.addAction(ok)
+        dialogMessage.addAction(cancel)
+        
+        self.present(dialogMessage, animated: true)
+    }
+    
     
 }

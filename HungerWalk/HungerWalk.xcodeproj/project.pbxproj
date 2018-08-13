@@ -15,6 +15,7 @@
 		792055C82121179A006FAF67 /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792055C72121179A006FAF67 /* CartTableViewCell.swift */; };
 		792055CB212163ED006FAF67 /* OrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792055CA212163ED006FAF67 /* OrderTableViewController.swift */; };
 		792055CD212168EC006FAF67 /* Orders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792055CC212168EC006FAF67 /* Orders.swift */; };
+		792055CF2121C75E006FAF67 /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792055CE2121C75E006FAF67 /* OrderTableViewCell.swift */; };
 		7948BB712109A70E00AFF915 /* BasicData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7948BB6F2109A70E00AFF915 /* BasicData+CoreDataClass.swift */; };
 		7948BB722109A70E00AFF915 /* BasicData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7948BB702109A70E00AFF915 /* BasicData+CoreDataProperties.swift */; };
 		7948BB752109AE9400AFF915 /* BasicData_map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7948BB742109AE9400AFF915 /* BasicData_map.swift */; };
@@ -53,6 +54,7 @@
 		792055C72121179A006FAF67 /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
 		792055CA212163ED006FAF67 /* OrderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewController.swift; sourceTree = "<group>"; };
 		792055CC212168EC006FAF67 /* Orders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orders.swift; sourceTree = "<group>"; };
+		792055CE2121C75E006FAF67 /* OrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
 		7948BB6F2109A70E00AFF915 /* BasicData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BasicData+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7948BB702109A70E00AFF915 /* BasicData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BasicData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7948BB742109AE9400AFF915 /* BasicData_map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicData_map.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				792055C5212100D0006FAF67 /* CartTableViewController.swift */,
 				792055C72121179A006FAF67 /* CartTableViewCell.swift */,
 				792055CA212163ED006FAF67 /* OrderTableViewController.swift */,
+				792055CE2121C75E006FAF67 /* OrderTableViewCell.swift */,
 			);
 			path = MainViewControllers;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				7948BB722109A70E00AFF915 /* BasicData+CoreDataProperties.swift in Sources */,
 				7951C9B62118DA16005502EC /* SettingsViewController.swift in Sources */,
 				79CFA3FE210059F60049138D /* LoginViewController.swift in Sources */,
+				792055CF2121C75E006FAF67 /* OrderTableViewCell.swift in Sources */,
 				7951C9BC211C0DCA005502EC /* Item.swift in Sources */,
 				79CFA4002100F7290049138D /* TutorialViewController.swift in Sources */,
 				792055CB212163ED006FAF67 /* OrderTableViewController.swift in Sources */,
