@@ -30,6 +30,8 @@ class DataFunctionStore: NSObject {
     
     static var cart: [Item : Int] = [:]
     
+    static var orders: [Order] = []
+    
     static func goToLogin(currentViewController : UIViewController){
         DataFunctionStore.BasicData?.tutorialComplete = true
         DataFunctionStore.appDelegate.saveContext()
@@ -306,5 +308,29 @@ class DataFunctionStore: NSObject {
             }
             
         }
+    }
+    
+    static func getOrders(completion: @escaping(ResultCompletion) -> Void){
+        print("go")
+        let url = domain + "getOrdersAPI.php"
+        let params = ["user_id": DataFunctionStore.BasicData?.userID ?? 0]
+        Alamofire.request(url, method: .post, parameters: params, encoding: URLEncoding.default, headers: [:])
+            .responseJSON(completionHandler: { response in
+                dump(response.result.value)
+                if response.response?.statusCode == 200{
+                    DataFunctionStore.orders = [Order]()
+                    let resultMain = response.result.value as! [[String : Any]]
+                    for result in resultMain{
+                        let order: Order = Order()
+                        order.amount = result["amount"] as? Int ?? 0
+                        order.date = result["date"] as? String ?? " "
+                        order.rest_name = result["rest_name"] as? String ?? " "
+                        DataFunctionStore.orders.append(order)
+                    }
+                    completion(.success(["Success": "Woppie"]))
+                }else{
+                    completion(.failure(["Failure": "Error in Connection"]))
+                }
+            })
     }
 }

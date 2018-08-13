@@ -603,6 +603,7 @@
                         <segue destination="LtL-pe-C46" kind="relationship" relationship="viewControllers" id="xqm-rF-vnI"/>
                         <segue destination="dyh-rN-J43" kind="relationship" relationship="viewControllers" id="GS2-qv-5qe"/>
                         <segue destination="3i1-KQ-3gv" kind="relationship" relationship="viewControllers" id="pvr-r9-Suj"/>
+                        <segue destination="yXy-xS-nWD" kind="relationship" relationship="viewControllers" id="dgU-GP-q79"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Gd-9v-uSu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -646,6 +647,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5eD-qO-dwq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-19" y="680"/>
+        </scene>
+        <!--Orders-->
+        <scene sceneID="2Cr-Vo-U2H">
+            <objects>
+                <tableViewController id="yXy-xS-nWD" customClass="OrderTableViewController" customModule="HungerWalk" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="yiw-VE-e4n">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="OrderTableViewCell" id="SYO-NP-0mF">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SYO-NP-0mF" id="Rhm-HF-Fh7">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="yXy-xS-nWD" id="CQv-hH-LiF"/>
+                            <outlet property="delegate" destination="yXy-xS-nWD" id="d8t-UD-fVs"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Orders" image="first" id="9Jl-jo-r6K"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i5Q-mG-0rM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1457" y="1055"/>
         </scene>
         <!--Settings-->
         <scene sceneID="iAB-t5-O1C">
